@@ -24,7 +24,11 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+   protected
+   
+   def customer_state
+    @customer = Customer.find_by(email: params[:customer][:email])
+   end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

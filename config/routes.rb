@@ -19,24 +19,22 @@ Rails.application.routes.draw do
 
   scope module: :public do
    get '/' => 'homes#top', as: 'top'
+   get '/customers/sign_up' => 'registrations#new'
+   post '/customers' => 'registrations#create'
    get '/customers/mypage' => 'customers#show'
    resources :comments, only:[:index, :new, :create, :edit, :update]
-   resources :customers, only:[:edit, :update]
-   resources :salon, only:[:show, :index]
-   resources :go_out, only:[:show, :index]
+   resources :spot, only:[:show, :index]
 
   end
 
 
  namespace :admin do
 
- get '/' => 'homes#top'
+ get '/admin' => 'homes#top'
  delete '/comment/:id/destroy' => 'comment#destroy'
 
  resources :items, only:[:new, :show, :create, :index, :edit, :update]
- resources :go_out, only:[:show, :index]
- resources :salons, only:[:show, :index]
- resources :spot, only:[:new, :create, :edit, :update, :destroy]
+ resources :spot, only:[:show, :index, :new, :create, :edit, :update, :destroy]
  resources :customers, only:[:show, :index]
 
 

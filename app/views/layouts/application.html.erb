@@ -12,7 +12,54 @@
   </head>
 
   <body>
-    
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">I♡PET</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <% if customer_signed_in? %>
+        <p class="text-center">ようこそ、<%= current_customer.first_name %>さん!</p>
+        <li class="nav-item">
+          <%= link_to "マイページ", customers_mypage_path, class: 'btn btn-default' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-default' %>
+        </li>
+       <% elsif admin_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-default' %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/customers/sign_up">新規会員登録</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/customers/sign_in">ログイン</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <% end %>
+    </div>
+  </div>
+</nav>
+    </header>
     <%= yield %>
+    
+     <footer class="bg-dark text-white pt-5 pb-4">
+       <div class="container">
+          <div class="row">
+              <div class="mx-auto">
+                  <p class="footer-text">©2023 lovepet Inc.</p>
+              </div>
+          </div>
+      </div>
+     </footer>
   </body>
 </html>
