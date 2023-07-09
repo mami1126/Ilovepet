@@ -23,7 +23,7 @@ Rails.application.routes.draw do
    post '/customers' => 'registrations#create'
    get '/customers/mypage' => 'customers#show'
    resources :comments, only:[:index, :new, :create, :edit, :update]
-   resources :spot, only:[:show, :index]
+   resources :spots, only:[:show, :index]
 
   end
 
@@ -33,8 +33,7 @@ Rails.application.routes.draw do
  get '/admin' => 'homes#top'
  delete '/comment/:id/destroy' => 'comment#destroy'
 
- resources :items, only:[:new, :show, :create, :index, :edit, :update]
- resources :spot, only:[:show, :index, :new, :create, :edit, :update, :destroy]
+ resources :spots, only:[:show, :index, :new, :create, :edit, :update, :destroy]
  resources :customers, only:[:show, :index]
 
 
