@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- 
+
 
  devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
-  
+
+
   devise_scope :user do
    post 'users/guest_sign_in', to: 'public/session#guest_sign_in'
   end
@@ -22,6 +22,10 @@ Rails.application.routes.draw do
    get '/customers/sign_up' => 'registrations#new'
    post '/customers' => 'registrations#create'
    get '/customers/mypage' => 'customers#show'
+   
+   root to: 'spots#index'
+   get 'search', to: 'prefectures#search'
+  
    resources :comments, only:[:index, :new, :create, :edit, :update]
    resources :spots, only:[:show, :index]
 
@@ -34,8 +38,8 @@ Rails.application.routes.draw do
  delete '/comment/:id/destroy' => 'comment#destroy'
 
  resources :spots, only:[:show, :index, :new, :create, :edit, :update, :destroy]
- resources :customers, only:[:show, :index]
-
+ resources :customers
+ resources :genres
 
  end
 

@@ -5,12 +5,32 @@ class Admin::SpotsController < ApplicationController
   
   def create
     @spot = Spot.new(spot_params)
-    @spot.save
+    if @spot.save!
     redirect_to '/admin/spots' 
+    end
   end
   
   def index
     @spot = Spot.all
+  end
+  
+  def show
+    @spot = Spot.find(params[:id])
+  end
+
+  def edit
+    @spot = Spot.find(params[:id])
+  end
+  
+  def update
+    @spot = Spot.find(params[:id])
+
+    if @spot.update(spots_params)
+     flash[:notice] = "You have updated item successfully."
+     redirect_to admin_spot_path(@spot.id)
+    else
+      render "edit"
+    end
   end
   
    private

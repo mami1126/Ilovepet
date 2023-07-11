@@ -62,3 +62,7 @@ gem 'kaminari','~> 1.2.1'
 gem "enum_help"
 
 gem 'font-awesome-rails'
+
+gem 'active_hash'
+
+gem 'ransack'

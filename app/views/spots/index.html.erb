@@ -1,0 +1,9 @@
+<%= search_form_for @q do |f| %>
+
+ <%= f.label :ジャンル %>
+ <%= f.search_field :genre_name %>
+
+ <%= f.label :prefecture_id %>
+ <%= f.collection_select :prefecture_id_eq, @prefectures, :id, :name, include_blank: '指定なし' %>
+ <%= f.submit %>
+<% end %>

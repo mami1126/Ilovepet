@@ -1,7 +1,7 @@
 <html>
 <body>
 <head>
-<title>TOP</title>
+<title>スポット編集</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -9,9 +9,9 @@
 </head>
 </body>
 <div class="container">
-<h6 class="text-center">新規スポット登録</h6>
+<h6 class="text-center">スポット編集</h6>
 
-<%= form_with model: @spot, url: admin_spots_path,local:true do |f| %>
+<%= form_with model: @spot, url: admin_spots_path(@spot.id), method: :patch do |f| %>
 
 <div class="form-group">
   <%= f.label "スポット画像" %>
@@ -61,7 +61,7 @@
 
 
 <div class="actions">
-  <%= f.submit "新規登録", class:"btn btn-success ms-3" %>
+  <%= f.submit "変更を保存", class:"btn btn-success ms-3" %>
 </div>
 <% end %>
 </div>
