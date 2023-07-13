@@ -24,10 +24,10 @@ Rails.application.routes.draw do
    get '/customers/mypage' => 'customers#show'
    
    root to: 'spots#index'
-   get 'search', to: 'prefectures#search'
+   get 'search', to: 'spots#search'
   
    resources :comments, only:[:index, :new, :create, :edit, :update]
-   resources :spots, only:[:show, :index]
+   resources :spots
 
   end
 

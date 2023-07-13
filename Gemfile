@@ -66,3 +66,5 @@ gem 'font-awesome-rails'
 gem 'active_hash'
 
 gem 'ransack'
+
+gem 'bulma-rails'
