@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 
-  devise_scope :user do
-   post 'users/guest_sign_in', to: 'public/session#guest_sign_in'
+  devise_scope :customer do
+   post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
 
@@ -22,10 +22,10 @@ Rails.application.routes.draw do
    get '/customers/sign_up' => 'registrations#new'
    post '/customers' => 'registrations#create'
    get '/customers/mypage' => 'customers#show'
-   
+
    root to: 'spots#index'
    get 'search', to: 'spots#search'
-  
+
    resources :comments, only:[:index, :new, :create, :edit, :update]
    resources :spots
 

@@ -5,6 +5,7 @@ class Admin::SpotsController < ApplicationController
   
   def create
     @spot = Spot.new(spot_params)
+    # @prefecture = Prefecture.all
     if @spot.save!
     redirect_to '/admin/spots' 
     end
@@ -35,6 +36,6 @@ class Admin::SpotsController < ApplicationController
   
    private
    def spot_params
-    params.require(:spot).permit(:spot_name, :address, :access, :telephone_number, :url, :facility, :business_day, :opening_hours, :image, :genre_id)
+    params.require(:spot).permit(:spot_name, :address, :access, :telephone_number, :url, :facility, :business_day, :opening_hours, :image, :genre_id, :prefectures_id)
    end
 end

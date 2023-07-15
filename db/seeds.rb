@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Admin.create!(
+ Admin.find_or_create_by!(
   email: 'mmr1126@icloud.com',
-  password: 'mami1126'
-)
+   password: 'mami1126'
+ )
 
 prefectures = [
   { id: 1, prefecture_name: "北海道", created_at: Time.current, updated_at: Time.current },
