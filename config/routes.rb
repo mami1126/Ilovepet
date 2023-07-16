@@ -27,22 +27,27 @@ Rails.application.routes.draw do
    get 'search', to: 'spots#search'
 
    resources :comments, only:[:index, :new, :create, :edit, :update]
-   resources :spots
-
+   resources :spots, expect: [:new, :create, :index, :show, :destroy] do
+    resource :favorites, only: [:create, :destroy]
+    resources :comments, only: [:create]
+   end
+   resources :customers, only: [:show, :edit, :update] do
+    get :favorites, on: :collection
+   end
   end
+  
 
 
  namespace :admin do
 
  get '/admin' => 'homes#top'
  delete '/comment/:id/destroy' => 'comment#destroy'
-
- resources :spots, only:[:show, :index, :new, :create, :edit, :update, :destroy]
+ # delete '/spots/:id' => 'spots#destroy', as: 'destroy_spot'
+ resources :spots
  resources :customers
  resources :genres
 
  end
 
-
-
 end
+

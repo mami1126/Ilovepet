@@ -1,9 +1,37 @@
+<html>
+<body>
+<head>
+<title>スポット一覧</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+</body>
 <%= search_form_for @q do |f| %>
 
- <%= f.label :ジャンル %>
- <%= f.search_field :genre_name %>
+ <%= f.label :genre_id, 'ジャンル' %>
+ <%= f.collection_select(:genre_id_eq, Genre.all, :id, :genre_name) %>
 
- <%= f.label :prefecture_id %>
- <%= f.collection_select :prefecture_id_eq, @prefectures, :id, :name, include_blank: '指定なし' %>
+ <%= f.label :prefecture_id, '都道府県' %>
+ <%= f.collection_select(:prefectures_id_eq, @prefectures, :id, :prefecture_name) %>
+ <%#= f.collection_select :prefecture_id_eq, @prefectures, :id, include_blank: '指定なし' %>
  <%= f.submit %>
 <% end %>
+
+
+ <div class="container">
+   <div class="row row-cols-1 row-cols-md-3 g-3">
+    <% @spots.each do |spot| %>
+      <%= link_to spot.spot_name, spot_path(spot) %>
+      <%#= image_tag spot.image, size: "300x200" %>
+      <%= spot.address %>
+     <td></td>
+     <% end %>
+    </div>
+ </div>
+  
+
+  
+   
+</div>

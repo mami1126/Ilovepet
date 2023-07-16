@@ -9,8 +9,7 @@ class CreateSpots < ActiveRecord::Migration[6.1]
       t.string :telephone_number
       t.text :url
       t.string :facility
-      t.date :business_day
-      t.time :opening_hours
+      t.string :business_day
       t.timestamps
     end
   end

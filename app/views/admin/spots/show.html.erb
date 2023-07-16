@@ -9,16 +9,20 @@
 </head>
 </body>
 
+
 <div class="container">
   <h5>スポット詳細</h5>
   <div class ="row">
-  
+    <div class="col-md-6">
+      <%= image_tag @spot.image, size: "300x200" %>
+    </div>
      <div class="col-md-6">
     <table>
      <tr>
       <td>スポット名</td>
       <td><%= @spot.spot_name %></td>
      </tr>
+     
     <tr>
       <td>ジャンル</th>
       <td><%= @spot.genre_id %></td>
@@ -32,7 +36,7 @@
       <td><%= @spot.telephone_number %></td>
     </tr>
     <tr>
-      <td>設備</td>
+      <td>料金</td>
       <td><%= @spot.facility %></td>
     </tr>
     <tr>

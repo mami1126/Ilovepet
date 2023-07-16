@@ -109,8 +109,7 @@ ActiveRecord::Schema.define(version: 2023_07_07_054916) do
     t.string "telephone_number"
     t.text "url"
     t.string "facility"
-    t.date "business_day"
-    t.time "opening_hours"
+    t.string "business_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
