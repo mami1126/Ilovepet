@@ -68,3 +68,6 @@ gem 'active_hash'
 gem 'ransack'
 
 gem 'bulma-rails'
+
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'

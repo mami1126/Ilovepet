@@ -15,23 +15,35 @@
 
  <%= f.label :prefecture_id, '都道府県' %>
  <%= f.collection_select(:prefectures_id_eq, @prefectures, :id, :prefecture_name) %>
- <%#= f.collection_select :prefecture_id_eq, @prefectures, :id, include_blank: '指定なし' %>
  <%= f.submit %>
 <% end %>
 
 
- <div class="container">
-   <div class="row row-cols-1 row-cols-md-3 g-3">
-    <% @spots.each do |spot| %>
+<div class="container">
+<div class="row">
+<h5><strong>スポット一覧</strong></h5>
+<%= @spots.count %>件
+</div>
+<div class="row">
+<% @spots.each do |spot| %>
+  <div class="col-md-3">
+    <div>
       <%= link_to spot.spot_name, spot_path(spot) %>
-      <%#= image_tag spot.image, size: "300x200" %>
+      <% if spot.image.attached? %>
+       <%= image_tag spot.image, size: "250x200" %>
+      <% else %>
+       <%= image_tag 'no_image', size: "250x200" %>
+      <% end %>
       <%= spot.address %>
      <td></td>
      <% end %>
     </div>
- </div>
-  
+  </div>
+
+<div class='p-top__paginate'><%= paginate @spot %></div>
+
+</div>
+</div>
 
   
    
-</div>

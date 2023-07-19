@@ -12,7 +12,8 @@ class Admin::SpotsController < ApplicationController
   end
   
   def index
-    @spot = Spot.all
+    @spots = Spot.all
+    @spot = Spot.page(params[:page]).per(10)
   end
   
   def show

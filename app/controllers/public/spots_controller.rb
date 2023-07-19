@@ -3,6 +3,7 @@ class Public::SpotsController < ApplicationController
     @q = Spot.ransack(params[:q])
     @spots = @q.result(distinct: true)
     @prefectures = Prefecture.all
+    @spot = Spot.page(params[:page]).per(10)
   end
 
   def search
@@ -19,5 +20,10 @@ class Public::SpotsController < ApplicationController
   private
   def search_params
     params.require(:q).permit!
+  end
+  
+ 
+  def spot_params
+    params.require(:spots).permit(:spot_id,:address,:image,:access,:business_day,:telephone_number,:facility,:url)
   end
 end
