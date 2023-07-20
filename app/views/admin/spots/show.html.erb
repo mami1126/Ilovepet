@@ -11,7 +11,7 @@
 
 
 <div class="container">
-  <h5>スポット詳細</h5>
+
   <div class ="row">
     <div class="col-md-6">
       <%= image_tag @spot.image, size: "300x200" %>
@@ -22,7 +22,7 @@
       <td>スポット名</td>
       <td><%= @spot.spot_name %></td>
      </tr>
-     
+
     <tr>
       <td>ジャンル</th>
       <td><%= @spot.genre_id %></td>
@@ -41,7 +41,7 @@
     </tr>
     <tr>
       <td>URL</td>
-      <td><%= @spot.url %></td>
+      <td><%= link_to @spot.url, "#{@spot.url}" %></td>
     </tr>
     <tr>
       <td>アクセス</td>

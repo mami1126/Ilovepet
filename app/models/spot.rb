@@ -1,6 +1,6 @@
 class Spot < ApplicationRecord
+  
   has_one_attached :image
-
   belongs_to :customer, optional: true
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy

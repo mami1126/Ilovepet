@@ -23,7 +23,5 @@ class Public::SpotsController < ApplicationController
   end
   
  
-  def spot_params
-    params.require(:spots).permit(:spot_id,:address,:image,:access,:business_day,:telephone_number,:facility,:url)
-  end
+
 end

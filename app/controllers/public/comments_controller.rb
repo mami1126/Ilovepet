@@ -1,7 +1,7 @@
 class Public::CommentsController < ApplicationController
 
   def create
-    spot = pot.find(params[:spot_id])
+    spot = Spot.find(params[:spot_id])
     comment = current_customer.comments.new(comment_params)
     comment.spot_id = spot.id
     comment.save

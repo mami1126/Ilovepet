@@ -19,6 +19,7 @@
 <% end %>
 
 
+
 <div class="container">
 <div class="row">
 <h5><strong>スポット一覧</strong></h5>
@@ -35,6 +36,7 @@
        <%= image_tag 'no_image', size: "250x200" %>
       <% end %>
       <%= spot.address %>
+      <p><%#= link_to "#{spot_comments.count} コメント", comments_path %></p>
      <td></td>
      <% end %>
     </div>
