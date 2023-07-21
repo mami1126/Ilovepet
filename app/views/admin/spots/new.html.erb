@@ -27,7 +27,7 @@
  <%= f.label "都道府県"%>
  <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :prefecture_name) %>
 </div>
- 
+
 <div class="form-group">
   <%= f.label "スポット名"%>
   <%= f.text_field :spot_name%>
@@ -54,7 +54,7 @@
 </div>
 
 <div class="form-group">
-  <%= f.label "料金" %>
+  <%= f.label "参考情報" %>
   <%= f.text_area :facility, class: 'form-control' %>
 </div>
 
