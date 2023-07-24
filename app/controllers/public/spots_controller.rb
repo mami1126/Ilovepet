@@ -13,9 +13,12 @@ class Public::SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
-    @spot = Comment.new
+    @spots = Comment.new
   end
-
+  
+  def favorites
+    @spots = current_customer.favorites_spots
+  end
 
   private
   def search_params

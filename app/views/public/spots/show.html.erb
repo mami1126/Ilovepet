@@ -1,44 +1,17 @@
-<html>
-<body>
-<head>
-<title>スポット詳細</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-</head>
-</body>
-
-<% if customer_signed_in?  %>
-   <div class="option" >
-     <div class="favorite-btn">
-       <i class="fa-regular fa-heart"></i>
-       <!--<p><span>お気に入り登録: </span><%#=link_to @spot.likes.count, record_likes_path(@spot.id), method: :post %></p>-->
-     </div>
-     <div class="report-btn">
-       <!--<%#= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>-->
-       <!--<p><span>お気に入り解除: </span><%#=link_to @spot.likes.count, record_likes_path(@spot.id), method: :delete %></p>-->
-     </div>
-     <div class="count-btn">
-       <!--<p><span>お気に入りされた数: </span><%#= @spot.likes.count %></p>-->
-     </div>
-     <% else %>
-       <p>※※※お気に入りをするにはユーザー登録をしましょう※※※</p>
-     <% end %>
-   </div>
 
 
 <div class="container">
  <div class ="row">
-   <!--<div class="col-md-6"><%#= image_tag @spot.image, size: "300x200" %></div>-->
    <div class="col-md-6">
-     <td><%= @spot.spot_id %></td>
+     <%= image_tag @spot.image, size: "300x200" %></div>
+   <div class="col-md-6">
+     <p><%= @spot.spot_name %></p>
      <p><%= @spot.access %></p>
      <p><%= @spot.business_day %></p>
      <p><%= @spot.address %></p>
      <p><%= @spot.telephone_number %></p>
      <p><%= @spot.facility %></p>
-     <p><%= @spot.url %></p>
+     <p><%= link_to @spot.url, "#{@spot.url}" %></p>
    </div>
  </div>
 </div>
@@ -52,9 +25,9 @@
   <% end %>
 </div>
 <div>
-  <%= form_with model: [@spot, @comment] do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
+  <%#= form_with model: [@spot, @comment] do |f| %>
+    <%#= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%#= f.submit "送信する" %>
+  <%# end %>
 </div>
  

@@ -1,16 +1,16 @@
-class FavoritesController < ApplicationController
+class Public::FavoritesController < ApplicationController
   before_action :set_spot
   before_action :authenticate_customer!
-  
+
   def create
-    if @spot.customer_id != current_customer.id
-      @favorite = Favorite.create(customer_id: current_customer.id, spot_id: @spot.id)
-    end
+    @favorite = Favorite.create(customer_id: current_customer.id, spot_id: @spot.id)
+    redirect_back fallback_location: root_path
   end
-  
+
   def destroy
     @favorite = Favorite.find_by(customer_id: current_customer.id, spot_id: @spot.id)
     @favorite.destroy
+    redirect_back fallback_location: root_path
   end
 
   private
