@@ -6,28 +6,17 @@
      <%= image_tag @spot.image, size: "300x200" %></div>
    <div class="col-md-6">
      <p><%= @spot.spot_name %></p>
+     <p><%= link_to "#{@spot.comments.count} コメント", comments_path %></p>
      <p><%= @spot.access %></p>
      <p><%= @spot.business_day %></p>
      <p><%= @spot.address %></p>
      <p><%= @spot.telephone_number %></p>
      <p><%= @spot.facility %></p>
      <p><%= link_to @spot.url, "#{@spot.url}" %></p>
+     <%= link_to :back do %>
+      <button>Back</button>
+     <% end %>
    </div>
  </div>
 </div>
 
-<div>
-  <p>コメント件数：<%= @spot.comments.count %></p>
-  <% @spot.comments.each do |comment| %>
-    <p><%= comment.customer %></p>
-    <%= comment.customer.name %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-  <% end %>
-</div>
-<div>
-  <%#= form_with model: [@spot, @comment] do |f| %>
-    <%#= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%#= f.submit "送信する" %>
-  <%# end %>
-</div>
- 

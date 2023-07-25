@@ -7,6 +7,15 @@ class Public::CommentsController < ApplicationController
     comment.save
     redirect_to spot_path(spot)
   end
+  
+  def index
+    @comment = Comment.all
+  end
+  
+  def destroy
+    Comment.find(params[:id]).destroy
+    redirect_to spot_path(params[:spot_id])
+  end
 
   private
 

@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[6.1]
       t.integer :customer_id, null: false
       t.integer :spot_id, null: false
       t.text :review
-      t.string :evaluation
+      t.float :rate
       t.timestamps
     end
   end

@@ -36,8 +36,8 @@
            <%= image_tag 'no_image', size: "250x200" %>
         <% end %>
         <br />
+        <p><%= link_to "#{spot.comments.count} コメント", comments_path %></p>
         <%= spot.address %>
-        <p><%#= link_to "#{spot_comments.count} コメント", comments_path %></p>
       </div>
      <% end %>
   </div>

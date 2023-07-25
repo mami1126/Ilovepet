@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2023_07_07_054916) do
     t.integer "customer_id", null: false
     t.integer "spot_id", null: false
     t.text "review"
-    t.string "evaluation"
+    t.float "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

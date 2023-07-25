@@ -1,0 +1,45 @@
+<div class = "container">
+<%= form_with model: @comment do |f| %>
+
+  <%#= render 'layouts/error_messages', model: f.object %>
+  <%#= f.hidden_field :spot_id, { value: spot.id} %>
+
+  <!-- 評価 -->
+  <div class="form-group row" id="star">
+    <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :rate, id: :review_star %>
+  </div>
+
+  <!-- 評価javascript -->
+  <script>
+  $(document).on('turbolinks:load', function() {
+        let elem = document.querySelector('#star');
+        if (elem == null) return;
+
+        elem.innerHTML = ""
+        let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          scoreName: 'post[rate]',
+        };
+        raty(elem, opt);
+      });
+  </script>
+
+  <!-- 口コミ -->
+  <div class="form-group row">
+    <%= f.label :content, '口コミ内容 ', class:'col-md-3 col-form-label' %>
+    <div class="col-md-9">
+      <%= f.text_area :content, class: "form-control", rows: "8" %>
+    </div>
+  </div>
+
+  <!-- 確認ボタン -->
+  <div class="form-group row justify-content-end">
+    <div class="col-md-9">
+      <%= f.submit '投稿する', class:"btn btn-success" %>
+    </div>
+  </div>
+
+<% end %>
+</div>
