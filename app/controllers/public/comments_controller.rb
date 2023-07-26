@@ -1,17 +1,21 @@
 class Public::CommentsController < ApplicationController
 
   def create
-    spot = Spot.find(params[:spot_id])
+    @spot = Spot.find(params[:spot_id])
     comment = current_customer.comments.new(comment_params)
-    comment.spot_id = spot.id
+    comment.spot_id = @spot.id
     comment.save
-    redirect_to spot_path(spot)
+    redirect_to spot_path(@spot)
   end
-  
+
+  def new
+    @spot = Spot.find(params[:spot_id])
+  end
+
   def index
     @comment = Comment.all
   end
-  
+
   def destroy
     Comment.find(params[:id]).destroy
     redirect_to spot_path(params[:spot_id])
@@ -20,7 +24,7 @@ class Public::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:comment, :rate)
   end
 
 end

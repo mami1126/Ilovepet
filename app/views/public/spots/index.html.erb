@@ -36,7 +36,23 @@
            <%= image_tag 'no_image', size: "250x200" %>
         <% end %>
         <br />
-        <p><%= link_to "#{spot.comments.count} コメント", comments_path %></p>
+        <div id="star-<%= spot.id %>"></div>
+        <script>
+         $(document).on('turbolinks:load', function() {
+          let elem = document.querySelector('#star-<%=spot.id %>');
+          if (elem == null) return;
+
+         elem.innerHTML = ""
+          let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          readOnly:true,
+          score: "<%= spot.comments.average(:rate) %>"
+          };
+          raty(elem, opt);
+          });
+        </script>
+        <p><%= link_to "#{spot.comments.count} コメント", new_spot_comment_path(spot.id) %></p>
         <%= spot.address %>
       </div>
      <% end %>

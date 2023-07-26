@@ -3,7 +3,7 @@ class Public::SpotsController < ApplicationController
     @q = Spot.ransack(params[:q])
     @spots = @q.result(distinct: true)
     @prefectures = Prefecture.all
-    @spot = Spot.page(params[:page]).per(10)
+    @spot = Spot.page(params[:page]).per(8)
   end
 
   def search

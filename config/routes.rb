@@ -26,9 +26,10 @@ Rails.application.routes.draw do
    root to: 'spots#index'
    get 'search', to: 'spots#search'
 
-   resources :comments, only:[:index, :new, :create, :edit, :update]
+   
    resources :spots, expect: [:new, :create, :index, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
+    resources :comments
    end
    resources :customers, only: [:show, :edit, :update] do
     get :favorites, on: :collection

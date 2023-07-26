@@ -6,7 +6,9 @@
      <%= image_tag @spot.image, size: "300x200" %></div>
    <div class="col-md-6">
      <p><%= @spot.spot_name %></p>
-     <p><%= link_to "#{@spot.comments.count} コメント", comments_path %></p>
+
+    <div id= "star"></div>
+     <p><%= link_to "#{@spot.comments.count} コメント", new_spot_comment_path(@spot.id) %></p>
      <p><%= @spot.access %></p>
      <p><%= @spot.business_day %></p>
      <p><%= @spot.address %></p>
@@ -17,6 +19,21 @@
       <button>Back</button>
      <% end %>
    </div>
+    <script>
+      $(document).on('turbolinks:load', function() {
+        let elem = document.querySelector('#star');
+        if (elem == null) return;
+
+        elem.innerHTML = ""
+        let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          readOnly: true,
+          score: "<%= @spot.comments.average(:rate) %>"
+        };
+        raty(elem, opt);
+      });
+     </script>
  </div>
 </div>
 

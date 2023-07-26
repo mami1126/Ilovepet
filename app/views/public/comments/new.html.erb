@@ -1,16 +1,12 @@
 <div class = "container">
-<%= form_with model: @comment do |f| %>
+<%= form_with model: @comment, url:spot_comments_path(@spot.id), method: :post do |f| %>
 
-  <%#= render 'layouts/error_messages', model: f.object %>
-  <%#= f.hidden_field :spot_id, { value: spot.id} %>
-
-  <!-- 評価 -->
-  <div class="form-group row" id="star">
+  <div class="form-group row">
     <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
-    <%= f.hidden_field :rate, id: :review_star %>
+    <span id= "star"></span>
   </div>
 
-  <!-- 評価javascript -->
+
   <script>
   $(document).on('turbolinks:load', function() {
         let elem = document.querySelector('#star');
@@ -20,13 +16,13 @@
         let opt = {
           starOn: "<%= asset_path('star-on.png') %>",
           starOff: "<%= asset_path('star-off.png') %>",
-          scoreName: 'post[rate]',
+          scoreName: 'comment[rate]',
         };
         raty(elem, opt);
       });
   </script>
 
-  <!-- 口コミ -->
+
   <div class="form-group row">
     <%= f.label :content, '口コミ内容 ', class:'col-md-3 col-form-label' %>
     <div class="col-md-9">
@@ -34,7 +30,7 @@
     </div>
   </div>
 
-  <!-- 確認ボタン -->
+
   <div class="form-group row justify-content-end">
     <div class="col-md-9">
       <%= f.submit '投稿する', class:"btn btn-success" %>
