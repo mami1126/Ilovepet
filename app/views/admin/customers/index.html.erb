@@ -26,7 +26,7 @@
       
       <td><%= link_to customer.name, admin_customer_path(customer) %></td>
       
-      
+      <td><%= customer.comments.count %>件</td>
     </tr>
     <% end %>
   </tbody>

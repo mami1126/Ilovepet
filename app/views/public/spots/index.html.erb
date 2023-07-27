@@ -52,7 +52,7 @@
           raty(elem, opt);
           });
         </script>
-        <p><%= link_to "#{spot.comments.count} コメント", new_spot_comment_path(spot.id) %></p>
+        <p><%= link_to "#{spot.comments.count} コメント", spot_comments_path(spot.id) %></p>
         <%= spot.address %>
       </div>
      <% end %>

@@ -15,19 +15,19 @@ Rails.application.routes.draw do
   devise_scope :customer do
    post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
+   root to: 'public/homes#top'
 
 
   scope module: :public do
-   get '/' => 'homes#top', as: 'top'
    get '/customers/sign_up' => 'registrations#new'
    post '/customers' => 'registrations#create'
    get '/customers/mypage' => 'customers#show'
 
-   root to: 'spots#index'
+  
    get 'search', to: 'spots#search'
 
    
-   resources :spots, expect: [:new, :create, :index, :show, :destroy] do
+   resources :spots, only: [:new, :create, :index, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :comments
    end
@@ -46,7 +46,6 @@ Rails.application.routes.draw do
  resources :spots
  resources :customers
  resources :genres
-
  end
 
 end

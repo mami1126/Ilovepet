@@ -26,5 +26,7 @@ class Public::SpotsController < ApplicationController
   end
   
  
-
+  def comment_params
+    params.require(:comment).permit(:comment, :rate)
+  end
 end

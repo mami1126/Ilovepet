@@ -1,8 +1,64 @@
 
-<% if @favorite.present? %>
-  <% @favorite.each do |spot| %>
-    <%= spot.name %>
-    <%= image_tag spot.image%>
+<div class="container px-5 px-sm-0">
+ <div class="row">
+  <div class="col-md-3">
+   <h4>プロフィール</h4>
+     <% if @customers.image.attached? %>
+       <%= image_tag customer.image, size: "250x200" %>
+     <% else %>
+       <%= image_tag 'no_image', size: "250x200" %>
+     <% end %>
+   <table class="table">
+    <tbody>
+     <tr></tr>
+     <tr>
+      <th>name</th>
+      <th><%= @customers.name %></th>
+     </tr>
+    </tbody>
+   </table>
+   <div class="row">
+    <%= link_to "編集する", edit_customer_path(@customers) %>
+   </div>
+  </div>
+
+
+  <table class="table table-bordered border-primary">
+   <thead>
+    <tr>
+     <th>お気に入りリスト</th>
+    </tr>
+   </thead>
+   
+    <% @favorited_spots.each do |spot| %>
+   <tbody>
+    <tr>
+     <th scope="col"><%= spot.spot_name %></th>
+     <td><%= spot.address %></td>
+    </tr>
     <% end %>
-<% end %>
+   
+
+  </table>
+
+
+  <table class="table table-bordered border-primary">
+   <thead>
+    <tr>
+     <th>スポット</th>
+     <th>コメント一覧</th>
+      <th>編集</th>
+    </tr>
+   </thead>
+    <% current_customer.comments.each do |comment| %>
+ 　<tbody>
+    <tr>
+     <th scope="col"><%= comment.spot.spot_name %></th>
+     <td><%= comment.review %></td>
+      <td> <%= link_to '編集', edit_spot_comment_path(comment.spot, comment), method: :get, class:'btn btn-default' %></td>
+    </tr>
+    <% end %>
+   </tbody>
+  </table>
+ </div>
 </div>

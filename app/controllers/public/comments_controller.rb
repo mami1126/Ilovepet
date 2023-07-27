@@ -13,7 +13,11 @@ class Public::CommentsController < ApplicationController
   end
 
   def index
-    @comment = Comment.all
+    @spot = Spot.find(params[:spot_id])
+    @comments = @spot.comments
+    if @comments.count == 0
+      redirect_to new_spot_comment_path(@spot.id)
+    end
   end
 
   def destroy
@@ -24,7 +28,7 @@ class Public::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:comment, :rate)
+    params.require(:comment).permit(:rate).merge({review: params[:review]})
   end
 
 end

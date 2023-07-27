@@ -1,49 +1,46 @@
-<% if @spots.present? %>
-  <% spots.each do |spot| %>
-    <div class="row posts">
-      <div class="col-md-2 posts-user">
-        <%= link_to spot.customer do %>
-        <%= image_tag spot.customer.picture.url ,width: '100px' %>
+<% if @comments.present? %>
+  <% @comments.each do |comment| %>
+    <div class="row">
+      <div class="col-md-2">
+        <% if comment.customer.image.attached? %>
+           <%= image_tag comment.customer.image, size: "250x200" %>
+        <% else %>
+           <%= image_tag 'no_image', size: "250x200" %>
         <% end %>
-        <p class="posts-title"><%= link_to spot.customer.name, spot.customer %></p>
-        <p class="posts-prof"><%= spot.customer.gender %> <%= spot.customer.height %> <%= spot.customer.weight %></p>
+        <p><%= comment.customer.name %></p>
       </div>
       <div class="col-md-6 mb-3">
         <div class=" posts-content">
-          <p><%= simple_time(post.created_at) %></p>
-          <h4 class="mb-3">評価：<%= spot.rate %>点 | <%= spot.title %></h4>
+          <h4 class="mb-3">評価：<%= comment.rate %>点 | <%= comment.review %></h4>
 
-          
-         <div id="star-rate-<%= spot.id %>"></div>
+        <div id="star-rate-<%= comment.id %>"></div>
           <script>
-          $('#star-rate-<%= spot.id %>').raty({
-            size: 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
-            readOnly: true,
-            score: <%= post.rate %>,
-          });
-          </script>  
-        
 
-          <p><%= post.content %></p>
-          <%= image_tag post.picture.url, class:'img-fluid' if post.picture? %>
+          $(document).on('turbolinks:load', function() {
+          let elem = document.querySelector('#star-rate-<%= comment.id %>');
+          if (elem == null) return;
+
+         elem.innerHTML = ""
+          let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          half: false,
+          readOnly:true,
+          score: <%= comment.rate %>,
+          };
+          raty(elem, opt);
+          });
+          </script>
+
         </div>
       </div>
       <div class="col-md-4">
-        <%= link_to post.product do %>
-          <div class="posts-product">
-            <img src="<%= post.product.image_url %>" alt="">
-            <p><%=  post.product.title %></p>
-          </div>
-        <%end %>
+        <%= comment.review %>
       </div>
       <div class="col-md-12 edit-button">
-        <% if current_user == post.user %>
-          <%= link_to '口コミを編集', edit_comment_path(post), method: :get, class:'btn btn-default' %>
-          <%= link_to '口コミを削除', post, method: :delete, class:'btn btn-default' %>
+        <% if comment.customer == current_customer %>
+          <%= link_to '口コミを編集', edit_spot_comment_path(@spot, comment), class:'btn btn-default' %>
+          <%= link_to '口コミを削除', @spot, method: :delete, class:'btn btn-default' %>
         <% end %>
       </div>
     </div>
