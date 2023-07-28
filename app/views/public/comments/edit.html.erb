@@ -1,5 +1,5 @@
 <div class = "container">
-<%= form_with model: @comment, url:spot_comments_path(@spot.id), method: :post do |f| %>
+<%= form_with model: @comment, url:spot_comment_path(@comment.id), method: :patch do |f| %>
 
   <div class="form-group row">
     <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>

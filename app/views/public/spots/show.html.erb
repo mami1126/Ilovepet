@@ -6,6 +6,17 @@
      <%= image_tag @spot.image, size: "300x200" %></div>
    <div class="col-md-6">
      <p><%= @spot.spot_name %></p>
+     <%= link_to @spot.spot_name.truncate(15), spot_path(@spot) %>
+        <% if !@spot.favorites.exists?(customer_id: current_customer.id) %>
+          <%= link_to spot_favorites_path(@spot.id), method: :post do %>
+            <i class="far fa-heart like-btn" ></i>
+          <% end %>
+        <% else %>
+          <%= link_to spot_favorites_path(@spot.id), method: :delete do %>
+            <i class="fas fa-heart unlike-btn"></i>
+          <% end %>
+        <% end %>
+        <br />
 
     <div id= "star"></div>
      <p><%= link_to "#{@spot.comments.count} コメント", new_spot_comment_path(@spot.id) %></p>

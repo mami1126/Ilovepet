@@ -20,6 +20,17 @@ class Public::CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @spot = Spot.find(params[:spot_id])
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @spot = Spot.find(params[:spot_id])
+    @comment = Comment.find(params[:id])
+    redirect_to spot_comment_path
+  end
+
   def destroy
     Comment.find(params[:id]).destroy
     redirect_to spot_path(params[:spot_id])

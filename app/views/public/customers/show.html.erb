@@ -18,11 +18,15 @@
     </tbody>
    </table>
    <div class="row">
-    <%= link_to "編集する", edit_customer_path(@customers) %>
+    <%= link_to edit_customer_path(@customers), class: 'btn btn-outline-secondary btn-block' do %>
+    <i class="fas fa-user-cog"></i>
+   <% end %>
    </div>
+  
+  
   </div>
 
-
+  
   <table class="table table-bordered border-primary">
    <thead>
     <tr>
@@ -33,11 +37,11 @@
     <% @favorited_spots.each do |spot| %>
    <tbody>
     <tr>
-     <th scope="col"><%= spot.spot_name %></th>
+     <th scope="col"><%= link_to spot.spot_name, spot_path(spot.id) %></th>
      <td><%= spot.address %></td>
     </tr>
     <% end %>
-   
+  
 
   </table>
 
@@ -55,8 +59,8 @@
     <tr>
      <th scope="col"><%= comment.spot.spot_name %></th>
      <td><%= comment.review %></td>
-      <td> <%= link_to '編集', edit_spot_comment_path(comment.spot, comment), method: :get, class:'btn btn-default' %></td>
-    </tr>
+      <td><%= link_to "編集", edit_spot_comment_path(comment.spot, comment), class: "btn btn-sm btn-success" %></td>
+      <td><%= link_to "削除", spot_comment_path(comment.spot, comment), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
     <% end %>
    </tbody>
   </table>
