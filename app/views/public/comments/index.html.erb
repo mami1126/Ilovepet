@@ -1,4 +1,7 @@
-<% if @comments.present? %>
+<% unless @comments.count == 0 %>
+<div class = "container">
+  <strong><%= @spot.spot_name %></strong>の<strong>口コミ</strong>
+  <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary" %></p>
   <% @comments.each do |comment| %>
     <div class="row">
       <div class="col-md-2">
@@ -40,13 +43,13 @@
       <div class="col-md-12 edit-button">
         <% if comment.customer == current_customer %>
           <%= link_to '口コミを編集', edit_spot_comment_path(@spot, comment), class:'btn btn-default' %>
-          <%= link_to '口コミを削除', @spot, method: :delete, class:'btn btn-default' %>
+          <%= link_to '口コミを削除', spot_comment_path(comment.spot, comment), method: :delete, class:'btn btn-default' %>
         <% end %>
       </div>
     </div>
 　<% end %>
 <% else %>
-  <a class="btn btn-primary" href=" /comments/new" role="button">口コミを投稿する</a>
+  <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary" %></p>
   <center>まだ口コミがありません<br>
   口コミ投稿にご協力ください。<br>
   <%= link_to :back do %>
@@ -54,3 +57,4 @@
   <% end %>
   </center>
 <% end %>
+</div>

@@ -41,6 +41,6 @@ class Customer < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
 end
 

@@ -1,15 +1,6 @@
-<html>
-<body>
-<head>
-<title>管理者ログイン</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-</head>
-<body>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class = "container">
   <div class="field">
   <div class="card">
   <article class="card-body">
@@ -42,6 +33,6 @@
   </article>
 </div>
 <% end %>
-</body>
-</html>
+  </div>
+</div>
 

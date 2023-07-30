@@ -6,12 +6,12 @@ class Public::CustomersController < ApplicationController
     @favorite_list = Spot.find(favorites)
     @favorited_spots = current_customer.favorited_spots
    end
-  
+
    def edit
     @customer = current_customer
       render "edit"
    end
-   
+
    def update
     @customer = Customer.find(params[:id])
     @customer.id = current_customer.id
@@ -22,10 +22,10 @@ class Public::CustomersController < ApplicationController
       render "edit"
     end
    end
-   
+
   private
    def customer_params
     params.require(:customer).permit(:name, :image)
    end
-  
+
 end

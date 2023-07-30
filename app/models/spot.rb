@@ -1,5 +1,5 @@
 class Spot < ApplicationRecord
-  
+
   has_one_attached :image
   belongs_to :customer, optional: true
   has_many :favorites, dependent: :destroy
@@ -14,7 +14,7 @@ class Spot < ApplicationRecord
   validate :url
   validate :facility
   validate :business_day
-  validates :content, presence: true, length: { maximum: 65_535 }
+  #validates :content, presence: true, length: { maximum: 65_535 }
 
   def get_image
     unless image.attached?

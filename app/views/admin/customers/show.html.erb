@@ -1,44 +1,38 @@
-<html>
-<body>
-<head>
-<title>会員詳細</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-</head>
-</body>
 
 <div class="container">
 <strong><%= @customer.name %></strong>さんの<strong>会員詳細</strong>
-<table class="table table-borderless">
-<tr>
-  <td>会員ID</td>
-  <td><%= @customer.id %></td>
-</tr>
-<tr>
-  <td>氏名</td>
-  <td><%= @customer.name %></td>
-</tr>
-<tr>
-  <td>メールアドレス</td>
-  <td><%= @customer.email %></td>
-</tr>
+<table class="table table-bordered border-primary">
+  <thead>
+   <tr>
+    <td>会員ID</td>
+    <td><%= @customer.id %></td>
+   </tr>
+   <tr>
+    <td>氏名</td>
+    <td><%= @customer.name %></td>
+   </tr>
+   <tr>
+    <td>メールアドレス</td>
+    <td><%= @customer.email %></td>
+   </tr>
+  <thead>
 </table>
 
-<h5>口コミ投稿</h5>
+<strong>口コミ投稿</strong>
 <table class="table table-bordered border-primary">
   <% @customer.comments.each do |comment| %>
-  <table class="table table-borderless">
+  <thead>
    <tr>
     <td><%= comment.spot.spot_name %></td>
     <td><%= comment.review %></td>
-    <td><%= link_to '削除', admin_path(comment.id), method: :delete, class:'btn btn-default' %></td>
-   </tr>
-  </table>
+    <td><%= link_to '削除', spot_comment_path(comment.spot, comment), class:"btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
   <% end %>
- </table>
+   </tr>
+  </thead>
+  </table>
+  
+
    <%= link_to :back do %>
       <button>Back</button>
-     <% end %>
+   <% end %>
 </div>
