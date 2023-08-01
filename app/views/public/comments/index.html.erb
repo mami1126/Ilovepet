@@ -1,10 +1,10 @@
 <% unless @comments.count == 0 %>
 <div class = "container">
   <strong><%= @spot.spot_name %></strong>の<strong>口コミ</strong>
-  <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary" %></p>
+  <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary" %>
   <% @comments.each do |comment| %>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-3">
         <% if comment.customer.image.attached? %>
            <%= image_tag comment.customer.image, size: "250x200" %>
         <% else %>
