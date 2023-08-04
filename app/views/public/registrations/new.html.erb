@@ -1,69 +1,59 @@
 
-<html>
-<body>
-<head>
-<title>新規登録</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-</head>
-<body>
  <%= form_with(model: @customer, url: customer_registration_path) do |f| %>
-<div class="card">
-<article class="card-body">
-    <h4 class="card-title text-center mb-4 mt-1">新規登録</h4>
+ <div class = "registration-new-container">
+  <div class="field">
+  <div class="card">
+  <article class="card-body">
+    <h4 class="card-title text-center mb-4 mt-1">新規会員登録</h4>
     <hr>
     <form>
     <div class="form-group">
     <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-         </div>
-        <!--<input name="" class="form-control" placeholder="ニックネーム" type="name">-->
+        </div>
         <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
-    </div> 
-    </div> 
-    
+    </div>
+    </div>
+
     <div class="form-group">
     <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-         </div>
-        <!--<input class="form-control" placeholder="メールアドレス" type="email">-->
+        </div>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
     </div>
-    </div> 
-     
-    
+    </div>
+
+
     <div class="form-group">
     <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
          </div>
-        <!--<input class="form-control" placeholder="パスワード(6文字以上）" type="password">-->
         <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
-    </div> 
-    </div> 
+    </div>
+    </div>
     <div class="form-group">
     <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
          </div>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div> 
-    </div> 
-    
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+    </div>
+    </div>
+
     <div class="form-group">
     <button type="submit" class="btn btn-primary btn-block">登録</button>
-    </div> 
+    </div>
     <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
     </form>
-  <% end %>
-</article>
-</div>
-</body>
-</html>
+  </article>
+  </div>
+ <% end %>
+  </div>
+ </div>
+
 
 
 

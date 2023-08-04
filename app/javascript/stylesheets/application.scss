@@ -10,7 +10,7 @@ body {
   background: url('../images/top.jpg') center center / cover no-repeat fixed;
   background-color: rgba(0,0,0,0.5);
   background-blend-mode: darken;
-  
+
   color: white;                        /*文字は白に*/
   font-weight: bold;                   /*太字に*/
   font-size: 2em;                      /*サイズ2倍*/
@@ -26,8 +26,58 @@ body {
     margin-top: 200px;
 }
 
-.top-container {
+.registration-container {       /*public/sessions/new*/
+    width: 600px;               /* 幅指定 */
+    height: 50px;               /* 高さ指定 */
+    margin:  0 auto;            /* 中央寄せ */
+    margin-top: 200px;
+}
+
+.registration-new-container {   /*public/registration/new*/
+    width: 600px;               /* 幅指定 */
+    height: 50px;               /* 高さ指定 */
+    margin:  0 auto;            /* 中央寄せ */
+    margin-top: 150px;
+}
+
+.top-container {                  /*admin/homes/top*/
    height: calc(100vh - 56px - 112px);
    background: url('../images/24049611.png') center center / cover no-repeat fixed;
    margin:  0 auto;
+}
+
+.circle1 {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: skyblue;
+  text-align: center;
+  line-height: 250px;
+}
+
+.circle2 {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: pink;
+  text-align: center;
+  line-height: 250px;
+}
+
+.circle3 {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: orange;
+  text-align: center;
+  line-height: 250px;
+}
+
+.circle4 {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: springgreen;
+  text-align: center;
+  line-height: 250px;
 }
