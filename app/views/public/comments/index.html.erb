@@ -1,9 +1,14 @@
 <% unless @comments.count == 0 %>
 <div class = "container">
-  <strong><%= @spot.spot_name %></strong>の<strong>口コミ</strong>
-  <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary" %>
-  <% @comments.each do |comment| %>
+   <div class="row">
+    <div class="comment">
+    <strong><%= @spot.spot_name %></strong>の<strong>口コミ</strong>
+    <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary btn-lg" %>
+    </div>
+   </div>
+  
     <div class="row">
+     <% @comments.each do |comment| %>
       <div class="col-md-3">
         <% if comment.customer.image.attached? %>
            <%= image_tag comment.customer.image, size: "250x200" %>
@@ -34,27 +39,30 @@
           raty(elem, opt);
           });
           </script>
-
-        </div>
+      </div>
       </div>
       <div class="col-md-4">
         <%= comment.review %>
       </div>
       <div class="col-md-12 edit-button">
         <% if comment.customer == current_customer %>
-          <%= link_to '口コミを編集', edit_spot_comment_path(@spot, comment), class:'btn btn-default' %>
-          <%= link_to '口コミを削除', spot_comment_path(comment.spot, comment), method: :delete, class:'btn btn-default' %>
+          <%= link_to '口コミを編集', edit_spot_comment_path(@spot, comment), class:'btn btn-primary' %>
+          <%= link_to '口コミを削除', spot_comment_path(comment.spot, comment), method: :delete, class:'btn btn-danger' %>
         <% end %>
       </div>
+    
+    
+　   <% end %>
+     <% else %>
+     <center class="nocomment">
+      <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary btn-lg" %><br>
+       まだ口コミがありません<br>
+       口コミ投稿にご協力ください。<br>
+      <%= link_to :back do %>
+      <button>Back</button>
+      <% end %>
+     </center>
+     <% end %>
     </div>
-　<% end %>
-<% else %>
-  <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary" %></p>
-  <center>まだ口コミがありません<br>
-  口コミ投稿にご協力ください。<br>
-  <%= link_to :back do %>
-  <button>Back</button>
-  <% end %>
-  </center>
-<% end %>
+    <div class='p-top__paginate'><%= paginate @comment %></div>
 </div>

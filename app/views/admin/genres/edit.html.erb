@@ -1,17 +1,8 @@
-<html>
-<body>
-<head>
-<title>TOP</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-</head>
-</body>
-<h3>ジャンル編集</h3>
-
-      <%= form_with model: @genre, url: admin_genre_path,method: :patch do |f| %>
-        <td><%= f.label :"ジャンル名", class: "mr-3" %></td>
-        <td><%= f.text_field :genre_name, class: "mr-5" %></td>
-        <td><%= f.submit "変更を保存", class: "btn btn-primary" %></td>
-      <% end %>
+<h3 class="text-center">ジャンル編集</h3>
+<div class="genres-container">
+  <%= form_with model: @genre, url: admin_genre_path,method: :patch do |f| %>
+    <td><%= f.label :"ジャンル名", class: "mr-3" %></td>
+    <td><%= f.text_field :genre_name, class: "mr-5" %></td>
+  　<td><%= f.submit "変更を保存", class: "btn btn-primary" %></td>
+　<% end %>
+</div>

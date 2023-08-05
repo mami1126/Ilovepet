@@ -1,72 +1,63 @@
-<html>
-<body>
-<head>
-<title>TOP</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-</head>
-</body>
-<div class="container">
-<h6 class="text-center">新規スポット登録</h6>
 
-<%= form_with model: @spot, url: admin_spots_path,local:true do |f| %>
+<div class="spot-new-container">
+   <h6 class="text-center"><strong>新規スポット登録</strong></h6>
 
-<div class="form-group">
-  <%= f.label "スポット画像" %>
-  <%= f.file_field :image, accept: "image/*" %>
-</div>
+   <%= form_with model: @spot, url: admin_spots_path,local:true do |f| %>
 
-<div class="form-group">
-  <%= f.label "ジャンル名"%>
-  <%= f.collection_select(:genre_id, Genre.all, :id, :genre_name) %>
-</div>
+   <div class="form-group">
+    <%= f.label "スポット画像" %>
+    <%= f.file_field :image, accept: "image/*" %>
+   </div>
 
-<div class="form-group">
- <%= f.label "都道府県"%>
- <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :prefecture_name) %>
-</div>
+   <div class="form-group">
+    <%= f.label "ジャンル名"%>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :genre_name) %>
+   </div>
 
-<div class="form-group">
-  <%= f.label "スポット名"%>
-  <%= f.text_field :spot_name%>
-</div>
+   <div class="form-group">
+    <%= f.label "都道府県"%>
+    <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :prefecture_name) %>
+   </div>
 
-<div class="form-group">
-  <%= f.label "住所" %>
-  <%= f.text_area :address, class: 'form-control' %>
-</div>
+   <div class="form-group">
+    <%= f.label "スポット名"%>
+    <%= f.text_field :spot_name%>
+   </div>
 
-<div class="form-group">
- <%= f.label "アクセス" %>
-  <%= f.text_field :access, class: 'form-control' %>
-</div>
+   <div class="form-group">
+    <%= f.label "住所" %>
+    <%= f.text_area :address, class: 'form-control' %>
+   </div>
 
-<div class="form-group">
-  <%= f.label "電話番号" %>
-  <%= f.text_field :telephone_number, class: 'form-control' %>
-</div>
+   <div class="form-group">
+    <%= f.label "アクセス" %>
+    <%= f.text_field :access, class: 'form-control' %>
+   </div>
 
-<div class="form-group">
-  <%= f.label "URL" %>
-  <%= f.text_field :url, class: 'form-control' %>
-</div>
+   <div class="form-group">
+    <%= f.label "電話番号" %>
+    <%= f.text_field :telephone_number, class: 'form-control' %>
+   </div>
 
-<div class="form-group">
-  <%= f.label "参考情報" %>
-  <%= f.text_area :facility, class: 'form-control' %>
-</div>
+   <div class="form-group">
+    <%= f.label "URL" %>
+    <%= f.text_field :url, class: 'form-control' %>
+   </div>
+
+   <div class="form-group">
+    <%= f.label "参考情報" %>
+    <%= f.text_area :facility, class: 'form-control' %>
+   </div>
 
 
-<div class="form-group">
-  <%= f.label "営業時間" %>
-  <%= f.text_area :business_day, class: 'form-control' %>
-</div>
+   <div class="form-group">
+    <%= f.label "営業時間" %>
+    <%= f.text_area :business_day, class: 'form-control' %>
+   </div>
 
 
-<div class="actions">
-  <%= f.submit "新規登録", class:"btn btn-success ms-3" %>
-</div>
-<% end %>
+   <div class="actions">
+    <%= f.submit "新規登録", class:"btn btn-success ms-3" %>
+   </div>
+   <% end %>
 </div>

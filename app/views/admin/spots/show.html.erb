@@ -1,54 +1,54 @@
 
-<div class="container">
+<div class="spot-container">
   <div class ="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
        <% if @spot.image.attached? %>
-           <%= image_tag @spot.image, size: "250x200" %>
-        <% else %>
-           <%= image_tag 'no_image', size: "250x200" %>
-        <% end %>
+           <%= image_tag @spot.image, size: "500x400" %>
+       <% else %>
+           <%= image_tag 'no_image', size: "500x400" %>
+       <% end %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
     <table>
      <tr>
-      <td>スポット名</td>
+      <td nowrap>【スポット名】</td>
       <td><%= @spot.spot_name %></td>
      </tr>
      <tr>
-      <td>都道府県</td>
+      <td nowrap>【都道府県】</td>
       <td><%= @spot.prefectures_id %></td>
      </tr>
      <tr>
-      <td>ジャンル</th>
+      <td nowrap>【ジャンル】</th>
       <td><%= @spot.genre_id %></td>
      </tr>
      <tr>
-      <td>住所</td>
+      <td nowrap>【住所】</td>
       <td><%= @spot.address %></td>
      </tr>
      <tr>
-      <td>電話番号</td>
+      <td nowrap>【電話番号】</td>
       <td><%= @spot.telephone_number %></td>
      </tr>
      <tr>
-      <td>参考情報</td>
+      <td nowrap>【参考情報】</td>
       <td><%= @spot.facility %></td>
      </tr>
      <tr>
-      <td>URL</td>
+      <td nowrap>【URL】</td>
       <td><%= link_to @spot.url, "#{@spot.url}" %></td>
      </tr>
      <tr>
-      <td>アクセス</td>
+      <td nowrap>【アクセス】</td>
       <td><%= @spot.access %></td>
      </tr>
      <tr>
-      <td>営業時間</td>
+      <td nowrap>【営業時間】</td>
       <td><%= @spot.business_day %></td>
      </tr>
     </table>
        <%= link_to "編集する", edit_admin_spot_path, :class => "btn btn-success ms-3" %>
-       <%= link_to "削除する", admin_spot_path, method: :delete,class: "btn btn-danger ms-3" %>
+       <%= link_to "削除する", admin_spot_path, class:"btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
     </div>
   </div>
 </div>

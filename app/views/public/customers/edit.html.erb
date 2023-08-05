@@ -1,6 +1,6 @@
-<main>
+
  <p id="notice"></p>
- <div class="container">
+ <div class="customer-container">
   <div class="row">
    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <h2>プロフィール編集</h2>
@@ -9,21 +9,20 @@
   <ul>
     <% @customer.errors.full_messages.each do |message| %>
       <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <% end %>
+  </ul> 
+  <% end %>
 
   <%= form_with model: @customer, url: customer_path(@customer.id), method: :patch do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control mb-3' %>
+   <%= f.label :name %>
+   <%= f.text_field :name, class: 'form-control mb-3' %>
 
-    <%= f.label :image %>
-    <%= f.file_field :image, class: 'form-control mb-3', accept: 'image/*' %>
-
-
-    <%= f.submit "登録する", class: "btn btn-secondary" %>
+   <%= f.label :image %>
+   <%= f.file_field :image, class: 'form-control mb-3', accept: 'image/*' %>
+   <%= f.submit "登録する", class: "btn btn-secondary" %>
+  <% end %>
    </div>
   </div>
  </div>
- </main>
-  <% end %>
+
+

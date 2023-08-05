@@ -81,3 +81,78 @@ body {
   text-align: center;
   line-height: 250px;
 }
+
+.spot-new-container {              /*admin/spot/new*/
+  background: skyblue;
+}
+
+.form-group {
+  padding: 0px 10px 0px 20px;
+}
+
+.actions {
+  padding: 0px 10px 10px 20px;
+}
+
+.genres-container {
+  height: calc(100vh - 56px - 112px);
+  background: url('../images/24049611.png') center center / cover no-repeat fixed;
+  text-align: center;
+  margin:  0 auto;
+  padding-top: 150px;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.mypage-container {
+  padding: 30px 100px 100px 100px;
+}
+
+.customer-container {
+  height: calc(100vh - 56px - 112px);
+  background: url('../images/24049611.png') center center / cover no-repeat fixed;
+  margin:  0 auto;
+  padding-top: 150px;
+}
+
+.spot-container {
+  padding-top: 150px;
+  padding-left: 30px;
+  line-height: 35px;
+  
+}
+
+.nocomment {
+  font-weight: bold;                      /*太字に*/
+  font-size: 2em;                         /*サイズ2倍*/
+  font-family :Quicksand, sans-serif;     /*Google Font*/
+  padding-top: 200px;
+  line-height: 2.0;
+}
+
+.comment {
+  font-weight: bold;                       /*太字に*/
+  font-size: 2em;                          /*サイズ2倍*/
+  font-family :Quicksand, sans-serif;      /*Google Font*/
+  text-align: center;
+}
+
+.pagination>li>a {                         /*ページネーション*/
+  border: none;     
+  color: #696969;   
+}
+
+.pagination>.active>a {     
+  background: #93c9ff;     
+  border-radius: 15px;     
+}
+
+.pagination>li>a:hover {        
+  border-radius: 15px;   
+}
+
+.pagination {
+  justify-content: center;
+}

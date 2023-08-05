@@ -15,6 +15,7 @@ class Public::CommentsController < ApplicationController
 
   def index
     @spot = Spot.find(params[:spot_id])
+    @comment = Comment.page(params[:page]).per(6)
     @comments = @spot.comments
   end
 
