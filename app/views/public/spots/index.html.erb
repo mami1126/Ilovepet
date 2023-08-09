@@ -1,24 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="col align-self-center">
+    <h4><strong>スポット一覧<%= @spots.count %>件</strong></h4>
+  </div>
+  <div class ="row">
+    <i class="fa-solid fa-magnifying-glass"></i><h6>検索</h6>
+  </div>
+
+    
     <%= search_form_for @q do |f| %>
-
-     <%= f.label :genre_id, 'ジャンル' %>
-     <%= f.collection_select(:genre_id_eq, Genre.all, :id, :genre_name) %>
-
-     <%= f.label :prefecture_id, '都道府県' %>
-     <%= f.collection_select(:prefectures_id_eq, @prefectures, :id, :prefecture_name) %>
-     <%= f.submit %>
-    <% end %>
+    <div class="form-group row">
+      <div class="col-sm-6">
+		   <label><%= f.label :genre_id, 'ジャンル' %></label>
+		    <%= f.collection_select(:genre_id_eq, Genre.all, :id, :genre_name) %>
+  	  </div>
+	    <div class="col-sm-6">
+		   <label><%= f.label :prefecture_id, '都道府県' %></label>
+		    <%= f.collection_select(:prefectures_id_eq, @prefectures, :id, :prefecture_name) %>
+	    </div>
+	    <div align="center">
+	      <%= f.submit 'この条件で検索する' ,class: "btn btn-success my-3"%>
+	    </div>
     </div>
-  </div>
+    <% end %>
 
 
 
-  <div class="row">
-    <h5><strong>スポット一覧</strong></h5>
-      <%= @spots.count %>件
-  </div>
+
+
   <div class="row">
     <% @spots.each do |spot| %>
       <div class="col-md-3">

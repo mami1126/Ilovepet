@@ -1,9 +1,9 @@
 
 <div class="mypage-container">
  <div class="row">
-  <div class="col-lg-4" style="background-color: blue-100;">
+  <div class="col-lg-3" style="background-color: blue-100;">
    <h4 class="text-center">プロフィール</h4>
-   　<div style="text-align: left">
+   　<div style="text-align: center">
      <% if @customers.image.attached? %>
        <%= image_tag @customers.image, size: "250x200" %>
      <% else %>
@@ -26,9 +26,9 @@
    </div>
   </div>
 
- <div class="col-lg-8">
+ <div class="col-lg-9">
   <table class="table table-bordered border-primary">
-     <h6>お気に入りリスト  <i class="fa-solid fa-heart" style="color: #e31c1c;"></i></h6>
+     <h6><strong>お気に入りリスト</strong> <i class="fa-solid fa-heart" style="color: #e31c1c;"></i></h6>
     <% @favorited_spots.each do |spot| %>
    <tbody>
     <tr>
@@ -42,7 +42,7 @@
 
 
   <table class="table table-bordered border-primary">
-   <h6>コメント一覧  <i class="fa-regular fa-comment-dots"></i></h6>
+   <h6><strong>コメント一覧</strong> <i class="fa-regular fa-comment-dots"></i></h6>
     <% current_customer.comments.each do |comment| %>
  　<tbody>
     <tr>

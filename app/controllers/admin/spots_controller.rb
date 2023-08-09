@@ -12,8 +12,10 @@ class Admin::SpotsController < ApplicationController
   end
   
   def index
-    @spots = Spot.all
     @spot = Spot.page(params[:page]).per(10)
+    @q = Spot.ransack(params[:q])
+    @spots = @q.result(distinct: true).page(params[:page]).per(8)
+    @prefectures = Prefecture.all
   end
   
   def show

@@ -1,5 +1,18 @@
 
 <div class="container">
+  <div class="row">
+  <div class="col align-self-center">
+    <%= search_form_for @q do |f| %>
+
+     <%= f.label :genre_id, 'ジャンル' %>
+     <%= f.collection_select(:genre_id_eq, Genre.all, :id, :genre_name) %>
+
+     <%= f.label :prefecture_id, '都道府県' %>
+     <%= f.collection_select(:prefectures_id_eq, @prefectures, :id, :prefecture_name) %>
+     <%= f.submit %>
+    <% end %>
+    </div>
+  </div>
 
     <td>スポット一覧</td>
     <%=link_to '/admin/spots/new',method: :get do %>

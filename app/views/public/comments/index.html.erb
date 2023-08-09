@@ -50,9 +50,8 @@
           <%= link_to '口コミを削除', spot_comment_path(comment.spot, comment), method: :delete, class:'btn btn-danger' %>
         <% end %>
       </div>
-    
-    
 　   <% end %>
+　   <div class='p-top__paginate'><%= paginate @comment %></div>
      <% else %>
      <center class="nocomment">
       <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary btn-lg" %><br>
@@ -64,5 +63,5 @@
      </center>
      <% end %>
     </div>
-    <div class='p-top__paginate'><%= paginate @comment %></div>
+    
 </div>
