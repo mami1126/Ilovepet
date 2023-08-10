@@ -3,11 +3,11 @@
 <%= form_with model: @comment, url:spot_comment_path(@comment.id), method: :patch do |f| %>
 
   <div class="form-group row">
-    <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+    <%= f.label :rate,'評価 ', class:'col-md-4 col-form-label' %>
     <span id= "star"></span>
   </div>
     <div class="form-group row">
-    <%= f.label :review, '口コミ内容 ', class:'col-md-3 col-form-label' %>
+    <%= f.label :review, '口コミ内容 ', class:'col-md-4 col-form-label' %>
     <div class="col-md-9">
       <%= f.text_area :review, class: "form-control", rows: "8" %>
     </div>
@@ -36,7 +36,7 @@
 
   <div class="form-group row justify-content-end">
     <div class="col-md-9">
-      <%= f.submit '投稿する', class:"btn btn-success" %>
+      <%= f.submit '投稿する', class:"btn btn-success btn-lg" %>
     </div>
   </div>
 

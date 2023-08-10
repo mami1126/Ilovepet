@@ -6,7 +6,7 @@
     <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary btn-lg" %>
     </div>
    </div>
-  
+   
     <div class="row">
      <% @comments.each do |comment| %>
       <div class="col-md-3">
@@ -39,10 +39,7 @@
           raty(elem, opt);
           });
           </script>
-      </div>
-      </div>
-      <div class="col-md-4">
-        <%= comment.review %>
+        </div>
       </div>
       <div class="col-md-12 edit-button">
         <% if comment.customer == current_customer %>
@@ -51,6 +48,7 @@
         <% end %>
       </div>
 　   <% end %>
+　 </div>
 　   <div class='p-top__paginate'><%= paginate @comment %></div>
      <% else %>
      <center class="nocomment">
@@ -62,6 +60,5 @@
       <% end %>
      </center>
      <% end %>
-    </div>
     
 </div>

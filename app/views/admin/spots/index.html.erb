@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
   <div class="col align-self-center">
-    <%= search_form_for @q do |f| %>
+    <%= search_form_for @q,url: admin_search_path do |f| %>
 
      <%= f.label :genre_id, 'ジャンル' %>
      <%= f.collection_select(:genre_id_eq, Genre.all, :id, :genre_name) %>
@@ -27,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @spot.each do |spot| %>
+    <% @spots.each do |spot| %>
     <tr>
 
       <td><%= link_to spot.spot_name, admin_spot_path(spot) %></td>
@@ -38,6 +38,6 @@
   </tbody>
 </table>
 
-<%= paginate @spot %>
+<%= paginate @spots %>
 
 </div>

@@ -39,7 +39,8 @@ Rails.application.routes.draw do
 
 
  namespace :admin do
-
+  
+ get 'search', to: 'spots#search'
  get '/admin' => 'homes#top'
  delete '/comment/:id/destroy' => 'comment#destroy'
  # delete '/spots/:id' => 'spots#destroy', as: 'destroy_spot'

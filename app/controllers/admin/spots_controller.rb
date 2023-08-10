@@ -2,22 +2,29 @@ class Admin::SpotsController < ApplicationController
   def new
     @spot = Spot.new
   end
-  
+
   def create
     @spot = Spot.new(spot_params)
     # @prefecture = Prefecture.all
     if @spot.save!
-    redirect_to '/admin/spots' 
+    redirect_to '/admin/spots'
     end
   end
-  
+
   def index
     @spot = Spot.page(params[:page]).per(10)
     @q = Spot.ransack(params[:q])
     @spots = @q.result(distinct: true).page(params[:page]).per(8)
     @prefectures = Prefecture.all
   end
-  
+
+  def search
+    @q = Spot.ransack(search_params)
+    @spots = @q.result(distinct: true).page(params[:page]).per(8)
+    @prefectures = Prefecture.all
+    render :index
+  end
+
   def show
     @spot = Spot.find(params[:id])
   end
@@ -25,13 +32,13 @@ class Admin::SpotsController < ApplicationController
   def edit
     @spot = Spot.find(params[:id])
   end
-  
+
   def destroy
     @spot = Spot.find(params[:id])
     @spot.destroy
     redirect_to '/admin/spots'
   end
-  
+
   def update
     @spot = Spot.find(params[:id])
 
@@ -42,9 +49,13 @@ class Admin::SpotsController < ApplicationController
       render "edit"
     end
   end
-  
+
    private
    def spot_params
     params.require(:spot).permit(:spot_name, :address, :access, :telephone_number, :url, :facility, :business_day, :opening_hours, :image, :genre_id, :prefectures_id)
+   end
+
+   def search_params
+    params.require(:q).permit!
    end
 end

@@ -1,20 +1,24 @@
 class Public::SpotsController < ApplicationController
   def index
     @q = Spot.ransack(params[:q])
-    @spots = @q.result(distinct: true).page(params[:page]).per(8)
+    @spots_count = @q.result(distinct: true)
+    @spots = @spots_count.page(params[:page]).per(8)
     @prefectures = Prefecture.all
   end
 
   def search
     @q = Spot.ransack(search_params)
-    @spots = @q.result(distinct: true)
+    @spots_count = @q.result(distinct: true)
+    @spots = @spots_count.page(params[:page]).per(8)
+    @prefectures = Prefecture.all
+    render :index
   end
 
   def show
     @spot = Spot.find(params[:id])
     @spots = Comment.new
   end
-  
+
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
