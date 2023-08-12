@@ -1,6 +1,6 @@
 
 <div class="container">
-<strong><%= @customer.name %></strong>さんの<strong>会員詳細</strong>
+ <strong><%= @customer.name %></strong>さんの<strong>会員詳細</strong>
 <table class="table table-bordered border-primary">
   <thead>
    <tr>
@@ -18,7 +18,7 @@
   <thead>
 </table>
 
-<strong>口コミ投稿</strong>
+ <strong>口コミ投稿</strong>
 <table class="table table-bordered border-primary">
   <% @customer.comments.each do |comment| %>
   <thead>
@@ -30,7 +30,6 @@
    </tr>
   </thead>
   </table>
-  
 
    <%= link_to :back do %>
       <button>Back</button>

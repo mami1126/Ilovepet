@@ -1,4 +1,4 @@
-
+ <%= flash[:notice] %>
 <div class="spot-container">
  <div class ="row">
    <div class="col-md-4">
@@ -8,6 +8,7 @@
    </div>
    <div class="col-md-8">
      <%= link_to @spot.spot_name, spot_path(@spot) %>
+        <% if customer_signed_in? %>
         <% if !@spot.favorites.exists?(customer_id: current_customer.id) %>
           <%= link_to spot_favorites_path(@spot.id), method: :post do %>
             <i class="far fa-heart like-btn" ></i>
@@ -16,6 +17,7 @@
           <%= link_to spot_favorites_path(@spot.id), method: :delete do %>
             <i class="fas fa-heart unlike-btn"></i>
           <% end %>
+        <% end %>
         <% end %>
         <br />
 

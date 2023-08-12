@@ -1,3 +1,4 @@
+ <%= flash[:notice] %>
 <% unless @comments.count == 0 %>
 <div class = "container">
    <div class="row">
@@ -44,12 +45,12 @@
       <div class="col-md-12 edit-button">
         <% if comment.customer == current_customer %>
           <%= link_to '口コミを編集', edit_spot_comment_path(@spot, comment), class:'btn btn-primary' %>
-          <%= link_to '口コミを削除', spot_comment_path(comment.spot, comment), method: :delete, class:'btn btn-danger' %>
+          <%= link_to '口コミを削除', spot_comment_path(comment.spot, comment), method: :delete, class:'btn btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %>
         <% end %>
       </div>
-　   <% end %>
-　 </div>
-　   <div class='p-top__paginate'><%= paginate @comment %></div>
+    <% end %>
+   </div>
+    <div class='p-top__paginate'><%= paginate @comments %></div>
      <% else %>
      <center class="nocomment">
       <%= link_to "口コミを投稿する", new_spot_comment_path(@spot.id), class: "btn btn-primary btn-lg" %><br>

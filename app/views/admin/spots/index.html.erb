@@ -18,9 +18,8 @@
     <%=link_to '/admin/spots/new',method: :get do %>
     <i class="fa-solid fa-plus"></i>
     <% end %>
- <table class="table">
+  <table class="table">
   <thead class="table-info">
-
     <tr>
       <th>スポット名</th>
       <th>住所</th>
@@ -29,14 +28,12 @@
   <tbody>
     <% @spots.each do |spot| %>
     <tr>
-
       <td><%= link_to spot.spot_name, admin_spot_path(spot) %></td>
-
       <td><%= spot.address %></td>
     </tr>
     <% end %>
   </tbody>
-</table>
+  </table>
 
 <%= paginate @spots %>
 

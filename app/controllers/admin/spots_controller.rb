@@ -5,7 +5,6 @@ class Admin::SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
-    # @prefecture = Prefecture.all
     if @spot.save!
     redirect_to '/admin/spots'
     end

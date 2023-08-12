@@ -10,6 +10,8 @@ class Customer < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :image
   validates :name, presence: true
+  validates :email, uniqueness: { message: 'そのアドレスは使用できません' },
+                  confirmation: true
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|

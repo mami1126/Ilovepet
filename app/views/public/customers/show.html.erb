@@ -1,9 +1,9 @@
-
+  <%= flash[:notice] %>
 <div class="mypage-container">
  <div class="row">
   <div class="col-lg-3" style="background-color: blue-100;">
    <h4 class="text-center">プロフィール</h4>
-   　<div style="text-align: center">
+    <div style="text-align: center">
      <% if @customers.image.attached? %>
        <%= image_tag @customers.image, size: "250x200" %>
      <% else %>
@@ -44,8 +44,7 @@
   <table class="table table-bordered border-primary">
    <h6><strong>コメント一覧</strong> <i class="fa-regular fa-comment-dots"></i></h6>
     <% current_customer.comments.each do |comment| %>
- 　<tbody>
-    <tr>
+   <tbody>
      <th scope="col"><%= comment.spot.spot_name %></th>
      <td><%= comment.review %></td>
       <td><%= link_to "編集", edit_spot_comment_path(comment.spot, comment), class: "btn btn-sm btn-success" %></td>

@@ -1,4 +1,4 @@
-
+ <%= flash[:notice] %>
 <%= form_with(model: @customer, url: session_path(resource_name)) do |f| %>
 <div class = "registration-container">
   <div class="field">
@@ -12,26 +12,26 @@
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
         </div>
-        
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-    </div> 
-    </div> 
-    
+
+        <%= f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'form-control' %>
+    </div>
+    </div>
+
     <div class="form-group">
     <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
         </div>
-        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
-    </div> 
-    </div> 
+        <%= f.password_field :password, placeholder: "パスワード（6文字以上)", autocomplete: "current-password", class: 'form-control' %>
+    </div>
+    </div>
     <div class="form-group">
-    <button type="submit" class="btn btn-primary btn-block">ログイン</button>
-    </div> 
-    <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
+     <button type="submit" class="btn btn-primary btn-block">ログイン</button>
+    </div>
+     <p class="text-center"><%= link_to "会員登録がまだの方はこちら", new_customer_registration_path %>
     </form>
-</article>
-</div>
+  </article>
+  </div>
 <% end %>
   </div>
 </div>

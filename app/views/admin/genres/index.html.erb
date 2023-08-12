@@ -14,8 +14,8 @@
        <th scope="col">ジャンル名</th>
        <th scope="col"></th>
       </tr>
-     <thead>
-    　<% @genres.each do |genre| %>　
+     </thead>
+     <% @genres.each do |genre| %>
       <tbody>
        <tr>
         <td><%= genre.genre_name %></td>
@@ -23,7 +23,6 @@
         <td><%= link_to "削除", admin_genre_path(genre.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
        </tr>
       </tbody>
-    <% end %>
+     <% end %>
     </table>
-    
 </div>

@@ -8,7 +8,6 @@
     <i class="fa-solid fa-magnifying-glass"></i><h6>検索</h6>
    </div>
 
-
     <%= search_form_for @q do |f| %>
     <div class="form-group row">
       <div class="col-md-6">
@@ -28,13 +27,11 @@
     <% end %>
   </div>
 
-
-
-
   <div class="row">
     <% @spots.each do |spot| %>
       <div class="col-md-3">
         <%= link_to spot.spot_name.truncate(15), spot_path(spot) %>
+        <% if customer_signed_in? %>
         <% if !spot.favorites.exists?(customer_id: current_customer.id) %>
           <%= link_to spot_favorites_path(spot.id), method: :post do %>
             <i class="far fa-heart like-btn" ></i>
@@ -43,6 +40,7 @@
           <%= link_to spot_favorites_path(spot.id), method: :delete do %>
             <i class="fas fa-heart unlike-btn"></i>
           <% end %>
+        <% end %>
         <% end %>
         <br />
         <% if spot.image.attached? %>

@@ -35,7 +35,6 @@ body {
 
 .registration-new-container {   /*public/registration/new*/
     width: 600px;               /* 幅指定 */
-    height: 50px;               /* 高さ指定 */
     margin:  0 auto;            /* 中央寄せ */
     margin-top: 150px;
 }
@@ -46,7 +45,7 @@ body {
    margin:  0 auto;
 }
 
-.circle1 {
+.circle1 {                       /* admin/homes/top */
   width: 250px;
   height: 250px;
   border-radius: 50%;
@@ -94,7 +93,7 @@ body {
   padding: 0px 10px 10px 20px;
 }
 
-.genres-container {
+.genres-container {                         /*admin/genres/edit*/
   height: calc(100vh - 56px - 112px);
   background: url('../images/24049611.png') center center / cover no-repeat fixed;
   text-align: center;
@@ -106,51 +105,51 @@ body {
   padding-top: 50px;
 }
 
-.mypage-container {
+.mypage-container {                                 /*public/customer/show*/
   padding: 30px 100px 100px 100px;
 }
 
-.customer-container {
+.customer-container {                              /*public/customer/edit*/
   height: calc(100vh - 56px - 112px);
   background: url('../images/24049611.png') center center / cover no-repeat fixed;
   margin:  0 auto;
   padding-top: 150px;
 }
 
-.spot-container {
+.spot-container {                                 /*public/spots/show*/
   padding-top: 150px;
   padding-left: 30px;
   line-height: 35px;
-  
+
 }
 
-.nocomment {
-  font-weight: bold;                      /*太字に*/
-  font-size: 2em;                         /*サイズ2倍*/
-  font-family :Quicksand, sans-serif;     /*Google Font*/
+.nocomment {                              /*public/comments/index*/
+  font-weight: bold;
+  font-size: 2em;
+  font-family :Quicksand, sans-serif;
   padding-top: 200px;
   line-height: 2.0;
 }
 
-.comment {
-  font-weight: bold;                       /*太字に*/
-  font-size: 2em;                          /*サイズ2倍*/
-  font-family :Quicksand, sans-serif;      /*Google Font*/
+.comment {                                 /*public/comments/index*/
+  font-weight: bold;
+  font-size: 2em;
+  font-family :Quicksand, sans-serif;
   text-align: center;
 }
 
 .pagination>li>a {                         /*ページネーション*/
-  border: none;     
-  color: #696969;   
+  border: none;
+  color: #696969;
 }
 
-.pagination>.active>a {     
-  background: #93c9ff;     
-  border-radius: 15px;     
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
 }
 
-.pagination>li>a:hover {        
-  border-radius: 15px;   
+.pagination>li>a:hover {
+  border-radius: 15px;
 }
 
 .pagination {
@@ -158,11 +157,24 @@ body {
 }
 
 
-.border {
+.border {                                /*public/spots/index*/
   background: #CCFFFF;
 }
 
 .search {
-  letter-spacing: 0.2em; 
-  
+  letter-spacing: 0.2em;
+
+}
+
+.field_with_errors {                   /*public/comments/new*/
+  display: contents;
+}
+
+.set_center_outer {                    /*public/registration/new*/
+  text-align: center;
+}
+
+.set_center_inner {
+  display: inline-block;
+  text-align: left;
 }
