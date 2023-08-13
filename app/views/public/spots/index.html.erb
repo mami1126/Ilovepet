@@ -11,12 +11,12 @@
     <%= search_form_for @q do |f| %>
     <div class="form-group row">
       <div class="col-md-6">
-		   <label class="search"><%= f.label :genre_id, 'ジャンル' %></label>
-		    <%= f.collection_select(:genre_id_eq, Genre.all, :id, :genre_name) %>
+		   <label class="search"><%= f.label :genre_id, 'ジャンル' %>
+		    <%= f.collection_select(:genre_id_eq, Genre.all, :id, :genre_name) %></label>
   	  </div>
 	    <div class="col-md-6">
-		   <label class="search"><%= f.label :prefecture_id, '都道府県' %></label>
-		    <%= f.collection_select(:prefectures_id_eq, @prefectures, :id, :prefecture_name) %>
+		   <label class="search"><%= f.label :prefecture_id, '都道府県' %>
+		    <%= f.collection_select(:prefectures_id_eq, @prefectures, :id, :prefecture_name) %></label>
 	    </div>
     </div>
       <div class="row">
@@ -29,7 +29,7 @@
 
   <div class="row">
     <% @spots.each do |spot| %>
-      <div class="col-md-3">
+      <div class="col-md-3 ">
         <%= link_to spot.spot_name.truncate(15), spot_path(spot) %>
         <% if customer_signed_in? %>
         <% if !spot.favorites.exists?(customer_id: current_customer.id) %>
@@ -42,13 +42,15 @@
           <% end %>
         <% end %>
         <% end %>
-        <br />
+        <p class="image">
+        <%= link_to spot_path(spot) do %>
         <% if spot.image.attached? %>
            <%= image_tag spot.image, size: "250x200" %>
         <% else %>
            <%= image_tag 'no_image', size: "250x200" %>
         <% end %>
-        <br />
+        <% end %>
+        </p>
         <div id="star-<%= spot.id %>"></div>
         <script>
          $(document).on('turbolinks:load', function() {
@@ -65,7 +67,7 @@
           raty(elem, opt);
           });
         </script>
-        <p><%= link_to "#{spot.comments.count} コメント", spot_comments_path(spot.id) %></p>
+        <%= link_to "#{spot.comments.count} コメント", spot_comments_path(spot.id) %><br>
         <%= spot.address %>
       </div>
      <% end %>

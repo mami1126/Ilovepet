@@ -36,7 +36,7 @@ body {
 .registration-new-container {   /*public/registration/new*/
     width: 600px;               /* 幅指定 */
     margin:  0 auto;            /* 中央寄せ */
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .top-container {                  /*admin/homes/top*/
@@ -163,6 +163,7 @@ body {
 
 .search {
   letter-spacing: 0.2em;
+  font-size: 25px;
 
 }
 
@@ -178,3 +179,17 @@ body {
   display: inline-block;
   text-align: left;
 }
+
+
+.image {
+overflow: hidden;
+height: auto;
+}
+.image img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.col-md-3 {
+ padding-top: 20px;
+} 
