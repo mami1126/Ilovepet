@@ -7,7 +7,7 @@ body {
 
 .main-container {                         /*public/homes/top*/
   height: calc(100vh - 56px - 112px);
-  background: url('../images/top.jpg') center center / cover no-repeat fixed;
+  background-image: image-url('../images/top.jpg') center center / cover no-repeat fixed;
   background-color: rgba(0,0,0,0.5);
   background-blend-mode: darken;
 
@@ -41,7 +41,7 @@ body {
 
 .top-container {                  /*admin/homes/top*/
    height: calc(100vh - 56px - 112px);
-   background: url('../images/24049611.png') center center / cover no-repeat fixed;
+   background-image: image-url('../images/24049611.png') center center / cover no-repeat fixed;
    margin:  0 auto;
 }
 
@@ -95,7 +95,7 @@ body {
 
 .genres-container {                         /*admin/genres/edit*/
   height: calc(100vh - 56px - 112px);
-  background: url('../images/24049611.png') center center / cover no-repeat fixed;
+  background-image: image-url('../images/24049611.png') center center / cover no-repeat fixed;
   text-align: center;
   margin:  0 auto;
   padding-top: 150px;
@@ -111,7 +111,7 @@ body {
 
 .customer-container {                              /*public/customer/edit*/
   height: calc(100vh - 56px - 112px);
-  background: url('../images/24049611.png') center center / cover no-repeat fixed;
+  background-image: image-url('../images/24049611.png') center center / cover no-repeat fixed;
   margin:  0 auto;
   padding-top: 150px;
 }
@@ -193,3 +193,5 @@ height: auto;
 .col-md-3 {
  padding-top: 20px;
 } 
+
+
