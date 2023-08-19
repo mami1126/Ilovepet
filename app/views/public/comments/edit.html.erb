@@ -1,6 +1,6 @@
 <h4 class="text-center">口コミ編集</h4>
 <div class = "container">
-<%= form_with model: @comment, url:spot_comment_path(@comment.id), method: :patch do |f| %>
+<%= form_with model: @comment, url: spot_comment_path(@spot.id, @comment.id), method: :patch do |f| %>
 
   <div class="form-group row">
     <%= f.label :rate,'評価 ', class:'col-md-4 col-form-label' %>
