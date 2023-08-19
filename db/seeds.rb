@@ -58,3 +58,13 @@ prefectures = [
 ]
 
 Prefecture.insert_all(prefectures)
+
+
+genres = [
+  { id: 1, genre_name: "ドッグラン", created_at: Time.current, updated_at: Time.current },
+  { id: 2, genre_name: "お食事", created_at: Time.current, updated_at: Time.current },
+  { id: 3, genre_name: "日帰り温泉", created_at: Time.current, updated_at: Time.current },
+  { id: 4, genre_name: "宿泊", created_at: Time.current, updated_at: Time.current },
+ ]
+ 
+ Genres.insert_all(genres)
