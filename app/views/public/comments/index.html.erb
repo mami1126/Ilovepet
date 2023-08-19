@@ -14,7 +14,7 @@
         <% if comment.customer.image.attached? %>
            <%= image_tag comment.customer.image, size: "250x200" %>
         <% else %>
-           <%= image_tag 'no_image', size: "250x200" %>
+           <%= image_tag '/assets/images/no_image.jpg', size: "250x200" %>
         <% end %>
         <p><%= comment.customer.name %></p>
       </div>
