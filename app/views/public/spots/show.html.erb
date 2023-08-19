@@ -4,7 +4,11 @@
    <div class="col-md-4">
      <div style="text-align: right">
       <p class="image">
-       <%= image_tag @spot.image, size: "500x400" %>
+       <% if @spot.image.attached? %>
+        <%= image_tag @spot.image, size: "400x400" %>
+       <% else %>
+        <%= image_tag '/assets/images/no_image.jpg', size: "400x400" %>
+       <% end %>
       </p>
       <p>参照：<%= @spot.spot_name %></p>
      </div>
