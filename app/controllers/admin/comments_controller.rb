@@ -1,10 +1,9 @@
 class Admin::CommentsController < ApplicationController
    def destroy
-    Comment.find(params[:id]).destroy
-    redirect_to spot_path(params[:spot_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to admin_customer_path(@comment.customer)
    end
-   
-   private
    
    def comment_params
     params.require(:comment).permit(:rate).merge({review: params[:review]})

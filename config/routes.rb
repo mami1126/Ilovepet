@@ -42,11 +42,11 @@ Rails.application.routes.draw do
   
  get 'search', to: 'spots#search'
  get '/admin' => 'homes#top'
- delete '/comment/:id/destroy' => 'comment#destroy'
  # delete '/spots/:id' => 'spots#destroy', as: 'destroy_spot'
  resources :spots
  resources :customers
  resources :genres
+ resources :comments, only: :destroy
  end
 
 end

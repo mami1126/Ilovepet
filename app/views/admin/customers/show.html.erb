@@ -25,7 +25,7 @@
    <tr>
     <td><%= comment.spot.spot_name %></td>
     <td><%= comment.review %></td>
-    <td><%= link_to '削除', spot_comment_path(comment.spot, comment), class:"btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+    <td><%= link_to '削除', admin_comment_path(comment), class:"btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
   <% end %>
    </tr>
   </thead>
