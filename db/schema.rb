@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2023_07_07_054916) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2023_07_07_054916) do
     t.string "prefecture_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["prefecture_name"], name: "index_prefectures_on_prefecture_name", unique: true
   end
 
   create_table "spots", force: :cascade do |t|
