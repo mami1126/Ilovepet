@@ -1,3 +1,12 @@
+<% if @spot.errors.any? %>
+  <div class = "alert">
+    <ul>
+      <% @spot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <div class="spot-new-container">
    <h6 class="text-center"><strong>新規スポット登録</strong></h6>

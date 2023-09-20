@@ -1,12 +1,15 @@
 class Admin::SpotsController < ApplicationController
+  before_action :authenticate_admin! 
   def new
     @spot = Spot.new
   end
 
   def create
     @spot = Spot.new(spot_params)
-    if @spot.save!
-    redirect_to '/admin/spots'
+    if @spot.save
+      redirect_to '/admin/spots'
+    else
+      redirect_to new_admin_spot_path
     end
   end
 
