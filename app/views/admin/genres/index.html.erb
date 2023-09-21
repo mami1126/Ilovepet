@@ -1,10 +1,14 @@
-<% if @genre.errors.any? %>
-      <% @genre.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-<% end %>
 
 <h3 class="text-center">ジャンル一覧・追加</h3>
+
+   <% if @genre.errors.any? %>
+  <ul>
+    <% @genre.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <div class="container">
 
   <%=form_with model: @genre,url: admin_genres_path, method: :post do |f| %>

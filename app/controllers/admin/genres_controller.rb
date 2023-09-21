@@ -11,7 +11,7 @@ class Admin::GenresController < ApplicationController
     if @genre.save
       redirect_to admin_genres_path
     else
-      redirect_to admin_genres_path
+      redirect_to admin_genres_path, status: :unprocessable_entity
     end
   end
 

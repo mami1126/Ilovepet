@@ -9,7 +9,7 @@ class Admin::SpotsController < ApplicationController
     if @spot.save
       redirect_to '/admin/spots'
     else
-      redirect_to new_admin_spot_path
+      render :new, status: :unprocessable_entity
     end
   end
 
