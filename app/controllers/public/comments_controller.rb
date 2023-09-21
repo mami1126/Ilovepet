@@ -32,24 +32,35 @@ class Public::CommentsController < ApplicationController
   def edit
     @spot = Spot.find(params[:spot_id])
     @comment = Comment.find(params[:id])
+    unless @comment.customer == current_customer
+      redirect_to  new_spot_comment_path
+    end
   end
 
   def update
     @spot = Spot.find(params[:spot_id])
     @comment = Comment.find(params[:id])
-    if @comment.update(comment_params)
-     redirect_to customers_mypage_path, notice: "情報を更新しました。"
+    if @comment.customer!= current_customer
+      redirect_to new_spot_comment_path
     else
+      if @comment.update(comment_params)
+     redirect_to customers_mypage_path, notice: "情報を更新しました。"
+      else
       render "edit"
+      end
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to spot_comments_path, alert: '投稿を削除しました'
+    if @comment.customer != current_customer
+       redirect_to customers_mypage_path
+    else
+       @comment.destroy
+        redirect_to customers_mypage_path, notice: "投稿を削除しました。"
+    end
   end
-
+  
   private
 
   def comment_params
