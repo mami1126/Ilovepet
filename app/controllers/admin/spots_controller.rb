@@ -1,5 +1,5 @@
 class Admin::SpotsController < ApplicationController
-  before_action :authenticate_admin! 
+  before_action :authenticate_admin!
   def new
     @spot = Spot.new
   end
@@ -7,7 +7,7 @@ class Admin::SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
     if @spot.save
-      redirect_to '/admin/spots'
+      redirect_to "/admin/spots"
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,26 +38,26 @@ class Admin::SpotsController < ApplicationController
   def destroy
     @spot = Spot.find(params[:id])
     @spot.destroy
-    redirect_to '/admin/spots'
+    redirect_to "/admin/spots"
   end
 
   def update
     @spot = Spot.find(params[:id])
 
     if @spot.update(spot_params)
-     flash[:notice] = "You have updated item successfully."
-     redirect_to admin_spot_path(@spot.id)
+      flash[:notice] = "You have updated item successfully."
+      redirect_to admin_spot_path(@spot.id)
     else
       render "edit"
     end
   end
 
    private
-   def spot_params
-    params.require(:spot).permit(:spot_name, :address, :access, :telephone_number, :url, :facility, :business_day, :opening_hours, :image, :genre_id, :prefectures_id)
-   end
+     def spot_params
+       params.require(:spot).permit(:spot_name, :address, :access, :telephone_number, :url, :facility, :business_day, :opening_hours, :image, :genre_id, :prefectures_id)
+     end
 
-   def search_params
-    params.require(:q).permit!
-   end
+     def search_params
+       params.require(:q).permit!
+     end
 end

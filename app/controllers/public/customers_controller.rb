@@ -1,18 +1,18 @@
 class Public::CustomersController < ApplicationController
-   def show
+  def show
     @customers = current_customer
     @comments = Comment.all
     favorites = Favorite.where(customer_id: current_customer.id).pluck(:spot_id)
     @favorite_list = Spot.find(favorites)
     @favorited_spots = current_customer.favorited_spots
-   end
+  end
 
-   def edit
+  def edit
     @customer = current_customer
-      render "edit"
-   end
+    render "edit"
+  end
 
-   def update
+  def update
     @customer = Customer.find(params[:id])
     @customer.id = current_customer.id
     if @customer.update(customer_params)
@@ -20,11 +20,10 @@ class Public::CustomersController < ApplicationController
     else
       render "edit"
     end
-   end
+  end
 
   private
-   def customer_params
-    params.require(:customer).permit(:name, :image)
-   end
-
+    def customer_params
+      params.require(:customer).permit(:name, :image)
+    end
 end

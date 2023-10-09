@@ -10,7 +10,7 @@ class PrefecturesController < ApplicationController
   end
 
   private
-  def search_params
-    params.require(:q).permit!
-  end
+    def search_params
+      params.require(:q).permit!
+    end
 end

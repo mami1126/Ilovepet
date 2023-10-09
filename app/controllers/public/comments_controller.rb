@@ -1,5 +1,5 @@
 class Public::CommentsController < ApplicationController
-     before_action :authenticate_customer!
+  before_action :authenticate_customer!
 
   def create
     @spot = Spot.find(params[:spot_id])
@@ -14,8 +14,8 @@ class Public::CommentsController < ApplicationController
         redirect_to spot_path(@spot), notice: "コメントの投稿は一度までです"
       end
     else
-     flash.now[:alert] = "コメントの保存に失敗しました"
-       render :new
+      flash.now[:alert] = "コメントの保存に失敗しました"
+      render :new
     end
   end
 
@@ -33,20 +33,20 @@ class Public::CommentsController < ApplicationController
     @spot = Spot.find(params[:spot_id])
     @comment = Comment.find(params[:id])
     unless @comment.customer == current_customer
-      redirect_to  new_spot_comment_path
+      redirect_to new_spot_comment_path
     end
   end
 
   def update
     @spot = Spot.find(params[:spot_id])
     @comment = Comment.find(params[:id])
-    if @comment.customer!= current_customer
+    if @comment.customer != current_customer
       redirect_to new_spot_comment_path
     else
       if @comment.update(comment_params)
-     redirect_to customers_mypage_path, notice: "情報を更新しました。"
+        redirect_to customers_mypage_path, notice: "情報を更新しました。"
       else
-      render "edit"
+        render "edit"
       end
     end
   end
@@ -54,17 +54,15 @@ class Public::CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.customer != current_customer
-       redirect_to customers_mypage_path
+      redirect_to customers_mypage_path
     else
-       @comment.destroy
-        redirect_to customers_mypage_path, notice: "投稿を削除しました。"
+      @comment.destroy
+      redirect_to customers_mypage_path, notice: "投稿を削除しました。"
     end
   end
-  
+
   private
-
-  def comment_params
-    params.require(:comment).permit(:rate,:review)
-  end
-
+    def comment_params
+      params.require(:comment).permit(:rate, :review)
+    end
 end

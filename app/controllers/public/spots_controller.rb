@@ -30,12 +30,12 @@ class Public::SpotsController < ApplicationController
   end
 
   private
-  def search_params
-    params.require(:q).permit!
-  end
+    def search_params
+      params.require(:q).permit!
+    end
 
 
-  def comment_params
-    params.require(:comment).permit(:comment, :rate)
-  end
+    def comment_params
+      params.require(:comment).permit(:comment, :rate)
+    end
 end

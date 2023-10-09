@@ -14,7 +14,7 @@ class Public::FavoritesController < ApplicationController
   end
 
   private
-  def set_spot
-    @spot = Spot.find(params[:spot_id])
-  end
+    def set_spot
+      @spot = Spot.find(params[:spot_id])
+    end
 end

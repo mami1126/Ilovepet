@@ -62,6 +62,6 @@ Prefecture.insert_all(prefectures)
 
 
 Admin.create!(
-  email: 'mmr1126@icloud.com',
-  password: 'mami1126'
+  email: "mmr1126@icloud.com",
+  password: "mami1126"
 )
